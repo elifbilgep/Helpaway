@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'Owner/ownerOfFood.dart';
 import '../const.dart';
+import 'Owner/createOwner.dart';
 import 'chooseWay.dart';
 
 class LoginPage extends StatefulWidget {
@@ -38,6 +40,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: allBgColor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -208,7 +211,10 @@ class _LoginPageState extends State<LoginPage> {
               child: RaisedButton(
                   elevation: 8,
                   color: notWhite,
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => CreateOwner()));
+                  },
                   child: Text(
                     "Owner of business?",
                     style: Theme.of(context)

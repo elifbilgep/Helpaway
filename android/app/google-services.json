@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "446233694166",
+    "project_id": "market-and-foods",
+    "storage_bucket": "market-and-foods.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:446233694166:android:3b7b2f17339d8aecd8de77",
+        "android_client_info": {
+          "package_name": "com.example.market"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "446233694166-khn95vduedpeh5edlg95mco2ar3a0fd9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBx_7HdqiOV1f45Mw-QMp7rRp170wIc7T8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "446233694166-khn95vduedpeh5edlg95mco2ar3a0fd9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

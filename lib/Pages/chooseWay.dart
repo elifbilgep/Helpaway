@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:market/const.dart';
+import '../const.dart';
 
 class Choose extends StatelessWidget {
   String foodText = "Shows restaurants that give away food nearby.";
