@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:market/Pages/Owner/createOwner.dart';
 import '../../Models/owner.dart';
 import '../../Services/firestore_service.dart';
 import '../../Services/authorization.dart';
@@ -65,7 +66,7 @@ class _SignInState extends State<SignIn> {
 
   buildCard(BuildContext context) {
     return Container(
-      height: 200,
+      height: 230,
       width: 350,
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(20)),
@@ -110,6 +111,11 @@ class _SignInState extends State<SignIn> {
                     hintText: "Sifre",
                     hintStyle: Theme.of(context).textTheme.bodyText1),
               ),
+              TextButton(
+                  onPressed: () => Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => CreateOwner())),
+                  child: Text("Create Account",
+                      style: Theme.of(context).textTheme.bodyText1))
             ],
           ),
         ),
@@ -156,6 +162,7 @@ class _SignInState extends State<SignIn> {
                       } catch (hata) {
                         print("Hata $hata");
                       }
+                     
                     }
                   },
                   child: Icon(

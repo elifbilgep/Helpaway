@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'Pages/details.dart';
+import 'Pages/login.dart';
 import 'Services/authorization.dart';
 import 'Services/redirecting.dart';
 import 'const.dart';

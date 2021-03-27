@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:market/Pages/Owner/signIn.dart';
 import 'Owner/ownerOfFood.dart';
 import '../const.dart';
 import 'Owner/createOwner.dart';
@@ -213,7 +214,7 @@ class _LoginPageState extends State<LoginPage> {
                   color: notWhite,
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => CreateOwner()));
+                        MaterialPageRoute(builder: (context) => SignIn()));
                   },
                   child: Text(
                     "Owner of business?",

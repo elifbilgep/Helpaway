@@ -86,7 +86,7 @@ class _CreateOwnerState extends State<CreateOwner> {
 
   buildCard(BuildContext context) {
     return Container(
-      height: 340,
+      height: 360,
       width: 350,
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(20)),
@@ -116,8 +116,8 @@ class _CreateOwnerState extends State<CreateOwner> {
                 validator: (value) {
                   if (value.isEmpty) {
                     return "Cant be empty";
-                  } else if (value.length > 50) {
-                    return "Cant be longer than 50 characters";
+                  } else if (value.length > 80) {
+                    return "Cant be longer than 80 characters";
                   }
                   return null;
                 },
@@ -288,8 +288,8 @@ class _CreateOwnerState extends State<CreateOwner> {
           left: 20.0,
         ),
         child: Container(
-          height: 160,
-          width: 160,
+          height: 130,
+          width: 130,
           child: SvgPicture.asset(
             "assets/images/newspaper.svg",
             fit: BoxFit.contain,
@@ -331,8 +331,8 @@ class _CreateOwnerState extends State<CreateOwner> {
                             city: givenCity,
                             country: givenCountry,
                           );
+                          Navigator.pop(context);
                         }
-                        ;
                       } catch (hata) {
                         print("Hata $hata");
                       }

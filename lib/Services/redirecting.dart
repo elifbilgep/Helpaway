@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:market/Pages/Owner/signIn.dart';
 import '../Models/owner.dart';
 import '../Pages/login.dart';
 import '../Pages/Owner/ownerOfFood.dart';
 import '../const.dart';
 import 'package:provider/provider.dart';
 import 'authorization.dart';
-
 
 class Redirecting extends StatefulWidget {
   @override
@@ -15,10 +15,6 @@ class Redirecting extends StatefulWidget {
 class _RedirectingState extends State<Redirecting> {
   String _activeUserId;
 
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +33,7 @@ class _RedirectingState extends State<Redirecting> {
           _authService.activeUserId = activeUser.id;
           return OwnerPage();
         } else {
-          return LoginPage();
+          return SignIn();
         }
       },
       stream: _authService.stateFollower,
