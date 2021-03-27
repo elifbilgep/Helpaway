@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'Pages/Owner/createOwner.dart';
 import 'Pages/details.dart';
 import 'Pages/login.dart';
 import 'Services/authorization.dart';

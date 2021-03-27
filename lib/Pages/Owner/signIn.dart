@@ -159,10 +159,10 @@ class _SignInState extends State<SignIn> {
                       try {
                         await _authService.signInWithMail(
                             givenEmail, givenPassword);
+                        Navigator.pop(context);
                       } catch (hata) {
                         print("Hata $hata");
                       }
-                     
                     }
                   },
                   child: Icon(

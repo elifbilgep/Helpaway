@@ -108,7 +108,7 @@ class _CreateOwnerState extends State<CreateOwner> {
                   return null;
                 },
                 decoration: InputDecoration(
-                    hintText: "Restaurant Name",
+                    hintText: "Restaurant Name/Market Name",
                     hintStyle: Theme.of(context).textTheme.bodyText1),
               ),
               TextFormField(
@@ -326,6 +326,8 @@ class _CreateOwnerState extends State<CreateOwner> {
                             givenEmail, givenPassword);
                         if (owner != null) {
                           await FirestoreService().createUser(
+                            adress: givenAdress,
+                            restaurantName: givenRestaurantName,
                             id: owner.id,
                             email: owner.email,
                             city: givenCity,

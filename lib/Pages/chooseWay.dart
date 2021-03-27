@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:market/Pages/details.dart';
 import '../const.dart';
 
 class Choose extends StatelessWidget {
+  final givenCountry;
+  final givenCity;
   String foodText = "Shows restaurants that give away food nearby.";
   String market =
       "Shows supermarkets that are eager to prevent waste of products nearby.";
+
+  Choose({Key key, this.givenCountry, this.givenCity}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -100,7 +105,10 @@ class Choose extends StatelessWidget {
                           "Show",
                           style: Theme.of(context).textTheme.headline2,
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) => Home(givenCity:givenCity,givenCountry:givenCountry)));
+                        },
                         color: prettyPurple,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(50.0))),

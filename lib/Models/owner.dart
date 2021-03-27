@@ -26,9 +26,9 @@ class Owner {
   factory Owner.createFromDoc(DocumentSnapshot doc) {
     return Owner(
         id: doc.id,
-        city: doc["city"],
-        country: doc["country"],
-        adress: doc["adress"],
-        restaurantName: doc["restaurantName"]);
+        city: doc.data()["city"],
+        country: doc.data()["country"],
+        adress: doc.data()["adress"],
+        restaurantName: doc.data()["restaurantName"]);
   }
 }

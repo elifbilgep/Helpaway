@@ -236,10 +236,15 @@ class _LoginPageState extends State<LoginPage> {
                   elevation: 8,
                   color: notWhite,
                   onPressed: () {
+                    givenCountry = value1;
+                    givenCity = value2;
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Choose(),
+                          builder: (context) => Choose(
+                            givenCity: givenCity,
+                            givenCountry: givenCountry,
+                          ),
                         ));
                   },
                   child: Icon(Icons.arrow_forward_ios),

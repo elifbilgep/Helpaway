@@ -6,12 +6,28 @@ class FoodItem {
   final String time;
   final String categories;
   final String publisherId;
+  final String foodCity;
+  final String foodCountry;
+  final String adress;
+  final String restaurantName;
 
   FoodItem(
-      {this.publisherId, this.id, this.foodName, this.time, this.categories});
+      {this.foodCity,
+      this.foodCountry,
+      this.adress,
+      this.restaurantName,
+      this.publisherId,
+      this.id,
+      this.foodName,
+      this.time,
+      this.categories});
 
   factory FoodItem.createFromDoc(DocumentSnapshot doc) {
     return FoodItem(
+        restaurantName: doc.data()["ownerOfPlaceName"],
+        adress: doc.data()["adress"],
+        foodCountry: doc.data()["country"],
+        foodCity: doc.data()["city"],
         publisherId: doc.data()["publisherId"],
         id: doc.id,
         foodName: doc.data()["foodName"],

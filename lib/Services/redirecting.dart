@@ -15,7 +15,6 @@ class Redirecting extends StatefulWidget {
 class _RedirectingState extends State<Redirecting> {
   String _activeUserId;
 
-
   @override
   Widget build(BuildContext context) {
     _activeUserId = Provider.of<Authorization>(context).activeUserId;
@@ -33,7 +32,7 @@ class _RedirectingState extends State<Redirecting> {
           _authService.activeUserId = activeUser.id;
           return OwnerPage();
         } else {
-          return SignIn();
+          return LoginPage();
         }
       },
       stream: _authService.stateFollower,

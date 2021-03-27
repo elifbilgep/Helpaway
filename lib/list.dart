@@ -1,3 +1,8 @@
-List food = ["tray.png", "soup.png", "bread.png", "dessert.png"];
+List food = [
+  "Main Course.png",
+  "Soup.png",
+  "Grain Products.png",
+  "Dessert.png"
+];
 
-List foodCategoryNames = ["Main Course", "Soup","Grain Products","Dessert"];
+List foodCategoryNames = ["Main Course", "Soup", "Grain Products", "Dessert"];

@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:market/Models/food_item.dart';
+import 'package:market/Models/owner.dart';
+import 'package:provider/provider.dart';
 
 import '../../Services/firestore_service.dart';
 import '../../Services/authorization.dart';
 import '../../const.dart';
 import '../../list.dart';
+import '../details.dart';
 
 class OwnerPage extends StatefulWidget {
   @override
@@ -28,10 +32,9 @@ class _OwnerPageState extends State<OwnerPage> {
       givenCategories,
       givenAdress;
   int choosenIndex;
-  final TextEditingController textController1 = TextEditingController();
-  final TextEditingController textController2 = TextEditingController();
-  final TextEditingController textController3 = TextEditingController();
-  final TextEditingController textController4 = TextEditingController();
+  var activeUserId;
+  Owner owner;
+  List<FoodItem> foods;
 
   final turkey = {
     "1": "İzmir",
@@ -51,96 +54,127 @@ class _OwnerPageState extends State<OwnerPage> {
 
   @override
   Widget build(BuildContext context) {
+    activeUserId = Provider.of<Authorization>(context).activeUserId;
     return DefaultTabController(
       length: 2,
-      child: Scaffold(
-          drawer: Drawer(
-            child: ListView(
-              padding: EdgeInsets.zero,
+      child: FutureBuilder(
+        future: FirestoreService().bringUser(activeUserId),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          owner = snapshot.data;
+          return buildScaffold(context);
+        },
+      ),
+    );
+  }
+
+  Scaffold buildScaffold(BuildContext context) {
+    return Scaffold(
+        drawer: buildDrawer(context),
+        key: _scaffoldKey,
+        floatingActionButton: Container(
+          height: 70,
+          width: 70,
+          child: FloatingActionButton(
+            onPressed: addItemFunction,
+            child: Icon(
+              Icons.add,
+              size: 38,
+              color: crazyPurple,
+            ),
+            elevation: 5,
+            backgroundColor: notWhite,
+          ),
+        ),
+        appBar: AppBar(
+          title: Text(
+            "Owner",
+            style: Theme.of(context).textTheme.headline2,
+          ),
+          centerTitle: true,
+          bottom: TabBar(indicatorColor: Colors.white, tabs: [
+            Tab(
+              icon: Icon(Icons.file_copy),
+              text: "My Items",
+            ),
+            Tab(
+              icon: Icon(Icons.add),
+              text: "Add Item",
+            )
+          ]),
+        ),
+        backgroundColor: allBgColor,
+        body: TabBarView(
+          children: [
+            myItems(context),
+            addItemCard(context),
+          ],
+        ));
+  }
+
+  Drawer buildDrawer(BuildContext context) {
+    return Drawer(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          DrawerHeader(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                DrawerHeader(
-                  child: Text(
-                    "Profile",
-                    style: Theme.of(context).textTheme.headline2,
-                  ),
-                  decoration: BoxDecoration(color: lightPurple),
+                Text(
+                  owner.restaurantName,
+                  style: Theme.of(context).textTheme.headline2,
                 ),
-                ListTile(
-                  title: Text("Edit profile"),
-                  leading: Icon(Icons.edit),
-                ),
-                ListTile(
-                  title: Text("Log out"),
-                  leading: Icon(Icons.logout),
-                  onTap: () => Authorization().signOut(),
+                Text(
+                  owner.adress,
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline2
+                      .copyWith(fontSize: 12),
                 )
               ],
             ),
+            decoration: BoxDecoration(color: lightPurple),
           ),
-          key: _scaffoldKey,
-          floatingActionButton: Container(
-            height: 70,
-            width: 70,
-            child: FloatingActionButton(
-              onPressed: addItemFunction,
-              child: Icon(
-                Icons.add,
-                size: 38,
-                color: crazyPurple,
-              ),
-              elevation: 5,
-              backgroundColor: notWhite,
-            ),
+          ListTile(
+            title: Text("Edit profile"),
+            leading: Icon(Icons.edit),
           ),
-          appBar: AppBar(
-            title: Text(
-              "Owner",
-              style: Theme.of(context).textTheme.headline2,
-            ),
-            centerTitle: true,
-            bottom: TabBar(indicatorColor: Colors.white, tabs: [
-              Tab(
-                icon: Icon(Icons.file_copy),
-                text: "My Items",
-              ),
-              Tab(
-                icon: Icon(Icons.add),
-                text: "Add Item",
-              )
-            ]),
-          ),
-          backgroundColor: allBgColor,
-          body: TabBarView(
-            children: [
-              myItems(context),
-              addItemCard(context),
-            ],
-          )),
+          ListTile(
+            title: Text("Log out"),
+            leading: Icon(Icons.logout),
+            onTap: () => Authorization().signOut(),
+          )
+        ],
+      ),
     );
   }
 
   void addItemFunction() async {
+    var activeUserId =
+        Provider.of<Authorization>(context, listen: false).activeUserId;
     givenCountry = value1;
     givenCity = value2;
     try {
       if (_formKey.currentState.validate()) {
         _formKey.currentState.save();
-        _scaffoldKey.currentState.showSnackBar(
-            SnackBar(content: Center(child: Text("Item added sucessfully."))));
+        _scaffoldKey.currentState
+            .showSnackBar(SnackBar(content: Text("Item added sucessfully.")));
         await FirestoreService().createFoodItem(
-            adress: givenAdress,
+            city: owner.city,
+            country: owner.country,
             categories: givenCategories,
-            city: givenCity,
-            country: givenCountry,
             foodName: givenFoodName,
-            ownerOfPlaceName: givenRestaurantName,
-            time: givenTime);
+            time: givenTime,
+            publisherId: activeUserId,
+            adress: owner.adress,
+            ownerOfPlaceName: owner.restaurantName);
         setState(() {
           choosenIndex = null;
-          textController1.clear();
-          textController2.clear();
-          textController3.clear();
-          textController4.clear();
         });
       }
     } catch (error) {
@@ -149,8 +183,22 @@ class _OwnerPageState extends State<OwnerPage> {
   }
 
   myItems(BuildContext context) {
+    return FutureBuilder(
+        future: FirestoreService().bringOwnerFoods(activeUserId),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          foods = snapshot.data;
+          return buildListView();
+        });
+  }
+
+  ListView buildListView() {
     return ListView.builder(
-      itemCount: 5,
+      itemCount: foods.length,
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.all(10.0),
@@ -175,7 +223,7 @@ class _OwnerPageState extends State<OwnerPage> {
                         height: 60,
                         width: 60,
                         child: Image.asset(
-                          "assets/images/soup.png",
+                          "assets/images/${foods[index].categories}.png",
                           fit: BoxFit.contain,
                         ),
                       ),
@@ -189,18 +237,18 @@ class _OwnerPageState extends State<OwnerPage> {
                       height: 10,
                     ),
                     Text(
-                      "Mercimek Soup",
+                      foods[index].foodName,
                       style: Theme.of(context).textTheme.headline1,
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     Text(
-                      "Tostçu Erol",
+                      owner.restaurantName,
                       style: Theme.of(context).textTheme.headline4,
                     ),
                     Text(
-                      "Karşıyaka",
+                      owner.city,
                       style: Theme.of(context)
                           .textTheme
                           .bodyText1
@@ -215,7 +263,7 @@ class _OwnerPageState extends State<OwnerPage> {
                           width: 80,
                         ),
                         Text(
-                          "Avaiable until 9 am",
+                          "Avaiable until " + foods[index].time,
                           style: Theme.of(context).textTheme.bodyText2.copyWith(
                               fontSize: 16, color: Colors.grey.shade500),
                           textAlign: TextAlign.end,
@@ -246,7 +294,7 @@ class _OwnerPageState extends State<OwnerPage> {
             height: 20,
           ),
           Container(
-            height: 450,
+            height: 280,
             width: 350,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(25),
@@ -258,42 +306,14 @@ class _OwnerPageState extends State<OwnerPage> {
                 padding: const EdgeInsets.all(20.0),
                 child: Column(
                   children: [
-                    dropdownButtons(context),
                     Container(
                         height: 60,
                         width: 350,
                         child: TextFormField(
-                          controller: textController1,
-                          onSaved: (inputValue) =>
-                              givenRestaurantName = inputValue,
-                          validator: (inputValue) => validator(inputValue),
-                          decoration: InputDecoration(
-                              hintText: "Restaurant name",
-                              hintStyle: Theme.of(context).textTheme.bodyText1),
-                        )),
-                    Container(
-                        height: 60,
-                        width: 350,
-                        child: TextFormField(
-                          controller: textController2,
                           onSaved: (inputValue) => givenFoodName = inputValue,
                           validator: (inputValue) => validator(inputValue),
                           decoration: InputDecoration(
                               hintText: "Food name",
-                              hintStyle: Theme.of(context).textTheme.bodyText1),
-                        )),
-                    Container(
-                        height: 60,
-                        width: 350,
-                        child: TextFormField(
-                          controller: textController3,
-                          onSaved: (inputValue) => givenAdress = inputValue,
-                          validator: (inputValue) =>
-                              validatorAdress(inputValue),
-                          minLines: 1,
-                          maxLines: 5,
-                          decoration: InputDecoration(
-                              hintText: "Adress",
                               hintStyle: Theme.of(context).textTheme.bodyText1),
                         )),
                     Row(
@@ -306,7 +326,6 @@ class _OwnerPageState extends State<OwnerPage> {
                             height: 50,
                             width: 100,
                             child: TextFormField(
-                              controller: textController4,
                               onSaved: (inputValue) => givenTime = inputValue,
                               validator: (inputValue) =>
                                   validatorTime(inputValue),
@@ -401,106 +420,6 @@ class _OwnerPageState extends State<OwnerPage> {
       return "Time can't be more than 5 characters";
     } else if (value.isEmpty) {
       return "Can't be empty";
-    }
-  }
-
-  Row dropdownButtons(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        DropdownButton<String>(
-          iconEnabledColor: crazyPurple,
-          style:
-              Theme.of(context).textTheme.bodyText1.copyWith(color: textColor),
-          hint: Text(hintCountry),
-          items: [
-            DropdownMenuItem<String>(
-              value: "Turkey",
-              child: Text(
-                "Turkey",
-              ),
-            ),
-            DropdownMenuItem<String>(
-              value: "America",
-              child: Text("America"),
-            ),
-            DropdownMenuItem<String>(
-              value: "England",
-              child: Text("England"),
-            ),
-          ],
-          onChanged: (_value) {
-            selected(_value);
-          },
-        ),
-        DropdownButton<String>(
-          iconEnabledColor: crazyPurple,
-          iconDisabledColor: allBgColor,
-          style:
-              Theme.of(context).textTheme.bodyText1.copyWith(color: textColor),
-          hint: Text(value2),
-          items: menuItems,
-          onChanged: disableddropDown
-              ? null
-              : (_value) {
-                  setState(() {
-                    value2 = _value;
-                  });
-                },
-          disabledHint: Text("City"),
-        ),
-      ],
-    );
-  }
-
-  void selected(String _value) {
-    if (_value == "Turkey") {
-      menuItems = [];
-      populateTurkey();
-    } else if (_value == "America") {
-      menuItems = [];
-      populateAmerica();
-    } else if (_value == "England") {
-      menuItems = [];
-      populateEngland();
-    }
-    setState(() {
-      hintCountry = _value;
-      value1 = _value;
-      disableddropDown = false;
-    });
-  }
-
-  void populateTurkey() {
-    for (String key in turkey.keys) {
-      menuItems.add(DropdownMenuItem<String>(
-        child: Center(
-          child: Text(turkey[key]),
-        ),
-        value: turkey[key],
-      ));
-    }
-  }
-
-  void populateAmerica() {
-    for (String key in america.keys) {
-      menuItems.add(DropdownMenuItem<String>(
-        child: Center(
-          child: Text(america[key]),
-        ),
-        value: america[key],
-      ));
-    }
-  }
-
-  void populateEngland() {
-    for (String key in england.keys) {
-      menuItems.add(DropdownMenuItem<String>(
-        child: Center(
-          child: Text(england[key]),
-        ),
-        value: england[key],
-      ));
     }
   }
 }
