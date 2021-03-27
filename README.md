@@ -1,9 +1,24 @@
-# market
+# Food & Market
+<div id="hidden-in-page">
+    <p align="center">
+        <img src="https://github.com/elifbilgep/market_food/blob/master/assets/git%20images/tubakalpp.png" alt="">
+    </p>
+</div>
+<hr>
 
-A new Flutter project.
+**We aimed to bring a solution to the problem <a href="https://developers.google.com/community/dsc-solution-challenge/UN-goals#goal-1br-no-poverty">No Poverty</a> and <a href="https://developers.google.com/community/dsc-solution-challenge/UN-goals#goal-2br-zero-hunger">Zero Hunger</a> from the problems prepared by the united nations, with this app. While designing the market part of our app, we wanted to reduce poverty by giving various grocery products to people in need. In the other part of our app, we provide fresh-cooked but not served food from restaurant and catering companies to poor people. In this way, we find a solution to both of the hunger problem and the food waste problem. 
+**
+
+We also thought of people who did not have a phone and would not be aware of our app. Municipalities and charity foundations can show places where people can go and buy free food or grocery products on large screens in squares and city centers. At the same time, some helpful people can inform these people after downloading and examining our app. 
+ 
+ <hr>
+ 
+ 
+<p align="center">
+        <img src="https://github.com/elifbilgep/Swapp/blob/master/assets/git%20images/Swapp_2.png" alt="">
+</p>
 
 ## Getting Started
-
 This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
@@ -14,3 +29,21 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+## Members
+<p align="center">
+        <img src="https://github.com/elifbilgep/market_food/blob/master/assets/git%20images/Marketing.png" alt="">
+</p>
+
+<hr>
+<p>
+    
+- [Tuğba Yılmaz](https://www.linkedin.com/in/tu%C4%9Fba-y%C4%B1lmaz-6144521bb/)
+- [Bilge Kağan Ece](https://www.linkedin.com/in/bilgekaganece/)
+- [Emir Kaan Kurt](https://www.linkedin.com/in/emir-kaan-kurt-3b33371a2/)
+- [Yusuf Eren Kaya](https://www.linkedin.com/in/yusuferenkaya/)
+
+</p>
+<hr>
+
+
