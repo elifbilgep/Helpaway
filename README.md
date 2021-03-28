@@ -22,7 +22,7 @@ We also thought of people who did not have a phone and would not be aware of our
 
 ## Description
 
-**We have utilized Flutter framework, thanks to the Hot-reload attribute, it has provided us to figure out  the changes we've done quickly. We've used the Provider package introduced by Google at IO 2018. We've utilized this package to access and use the user's ID we've received from Firebase on every page.**
+**We have utilized Flutter framework, thanks to the Hot-reload attribute, it has provided us to figure out  the changes we've done quickly. We've used the Provider package introduced by Google at IO 2018. We've utilized this package to access and use the user's ID received from Firebase on every page.**
 
 <hr>
 
