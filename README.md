@@ -18,6 +18,8 @@ We also thought of people who did not have a phone and would not be aware of our
         <img height="1127" width="793" src="https://github.com/elifbilgep/market_food/blob/master/assets/git%20images/Marketing.png" alt="">
 </p>
 
+<hr>
+
 ## Description
 
 **We have utilized Flutter framework, thanks to the Hot-Reload attribute, it has provided us to figure out  the changes we've done quickly. We've used the Provider package introduced by Google at IO 2018. We've utilized this package to access and use the user's ID on every page.**
