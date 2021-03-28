@@ -24,6 +24,16 @@ We also thought of people who did not have a phone and would not be aware of our
 
 <hr>
 
+## Run the project
+
+for run this project you need ios or android device(can be emulator). After connecting phone your computer successfully. You can run easily with these commands.
+
+```
+flutter pub get
+flutter run
+```
+
+
 ## Screenshots
 
 <p align="center">
