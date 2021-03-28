@@ -33,6 +33,8 @@ flutter pub get
 flutter run
 ```
 
+<hr>
+
 
 ## Screenshots
 
