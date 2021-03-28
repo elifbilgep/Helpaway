@@ -18,6 +18,36 @@ We also thought of people who did not have a phone and would not be aware of our
         <img src="https://github.com/elifbilgep/market_food/blob/master/assets/git%20images/Marketing.png" alt="">
 </p>
 
+## Screenshots
+
+<p align="center">
+        <img src="https://github.com/elifbilgep/market_food/blob/master/assets/git%20images/Screenshot_1616959384.png" alt="">
+</p>
+<p align="center">
+        <img src="https://github.com/elifbilgep/market_food/blob/master/assets/git%20images/Screenshot_1616959389.png" alt="">
+</p>
+<p align="center">
+        <img src="https://github.com/elifbilgep/market_food/blob/master/assets/git%20images/Screenshot_1616959392.png" alt="">
+</p>
+<p align="center">
+        <img src="https://github.com/elifbilgep/market_food/blob/master/assets/git%20images/Screenshot_1616959396.png" alt="">
+</p>
+<p align="center">
+        <img src="https://github.com/elifbilgep/market_food/blob/master/assets/git%20images/Screenshot_1616959460.png" alt="">
+</p>
+<p align="center">
+        <img src="https://github.com/elifbilgep/market_food/blob/master/assets/git%20images/Screenshot_1616959468.png" alt="">
+</p>
+<p align="center">
+        <img src="https://github.com/elifbilgep/market_food/blob/master/assets/git%20images/Screenshot_1616960890.png" alt="">
+</p>
+<p align="center">
+        <img src="https://github.com/elifbilgep/market_food/blob/master/assets/git%20images/Screenshot_1616960893.png" alt="">
+</p>
+<p align="center">
+        <img src="https://github.com/elifbilgep/market_food/blob/master/assets/git%20images/Screenshot_1616960895.png" alt="">
+</p>
+
 ## Getting Started
 This project is a starting point for a Flutter application.
 
