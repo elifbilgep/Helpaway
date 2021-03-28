@@ -334,6 +334,7 @@ class _CreateOwnerState extends State<CreateOwner> {
                             country: givenCountry,
                           );
                           Navigator.pop(context);
+                          Navigator.pop(context);
                         }
                       } catch (hata) {
                         print("Hata $hata");
