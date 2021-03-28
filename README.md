@@ -38,32 +38,32 @@ flutter run
 
 ## Screenshots
 
-<p align="center" float="left" height="1110" width="540">
-        <img src="https://github.com/elifbilgep/market_food/blob/master/assets/git%20images/Screenshot_1616959384.png" alt="">
+<p align="center" float="left">
+        <img height="1110" width="540" src="https://github.com/elifbilgep/market_food/blob/master/assets/git%20images/Screenshot_1616959384.png" alt="">
 </p>
-<p align="center" float="left" height="1110" width="540">
-        <img src="https://github.com/elifbilgep/market_food/blob/master/assets/git%20images/Screenshot_1616959389.png" alt="">
+<p align="center" float="left">
+        <img height="1110" width="540" src="https://github.com/elifbilgep/market_food/blob/master/assets/git%20images/Screenshot_1616959389.png" alt="">
 </p>
-<p align="center" float="left" height="1110" width="540">
-        <img src="https://github.com/elifbilgep/market_food/blob/master/assets/git%20images/Screenshot_1616959392.png" alt="">
+<p align="center" float="left">
+        <img height="1110" width="540" src="https://github.com/elifbilgep/market_food/blob/master/assets/git%20images/Screenshot_1616959392.png" alt="">
 </p>
-<p align="center" float="left" height="1110" width="540">
-        <img src="https://github.com/elifbilgep/market_food/blob/master/assets/git%20images/Screenshot_1616959396.png" alt="">
+<p align="center" float="left">
+        <img height="1110" width="540" src="https://github.com/elifbilgep/market_food/blob/master/assets/git%20images/Screenshot_1616959396.png" alt="">
 </p>
-<p align="center" float="left" height="1110" width="540">
-        <img src="https://github.com/elifbilgep/market_food/blob/master/assets/git%20images/Screenshot_1616959460.png" alt="">
+<p align="center" float="left">
+        <img height="1110" width="540" src="https://github.com/elifbilgep/market_food/blob/master/assets/git%20images/Screenshot_1616959460.png" alt="">
 </p>
-<p align="center" float="left" height="1110" width="540">
-        <img src="https://github.com/elifbilgep/market_food/blob/master/assets/git%20images/Screenshot_1616959468.png" alt="">
+<p align="center" float="left">
+        <img height="1110" width="540" src="https://github.com/elifbilgep/market_food/blob/master/assets/git%20images/Screenshot_1616959468.png" alt="">
 </p>
-<p align="center" float="left" height="1110" width="540">
-        <img src="https://github.com/elifbilgep/market_food/blob/master/assets/git%20images/Screenshot_1616960890.png" alt="">
+<p align="center" float="left">
+        <img height="1110" width="540" src="https://github.com/elifbilgep/market_food/blob/master/assets/git%20images/Screenshot_1616960890.png" alt="">
 </p>
-<p align="center" float="left" height="1110" width="540">
-        <img src="https://github.com/elifbilgep/market_food/blob/master/assets/git%20images/Screenshot_1616960893.png" alt="">
+<p align="center" float="left">
+        <img height="1110" width="540" src="https://github.com/elifbilgep/market_food/blob/master/assets/git%20images/Screenshot_1616960893.png" alt="">
 </p>
-<p align="center" float="left" height="1110" width="540">
-        <img src="https://github.com/elifbilgep/market_food/blob/master/assets/git%20images/Screenshot_1616960895.png" alt="">
+<p align="center" float="left">
+        <img height="1110" width="540" src="https://github.com/elifbilgep/market_food/blob/master/assets/git%20images/Screenshot_1616960895.png" alt="">
 </p>
 
 <hr>
