@@ -6,7 +6,7 @@
 </div>
 <hr>
 
-**We aimed to bring a solution to the problem <a href="https://developers.google.com/community/dsc-solution-challenge/UN-goals#goal-1br-no-poverty">No Poverty</a> and <a href="https://developers.google.com/community/dsc-solution-challenge/UN-goals#goal-2br-zero-hunger">Zero Hunger</a> from the problems prepared by the united nations, with this app. While designing the market part of our app, we wanted to reduce poverty by giving various grocery products to people in need. In the other part of our app, we provide fresh-cooked but not served food from restaurant and catering companies to poor people. In this way, we find a solution to both of the hunger problem and the food waste problem.**
+**We aimed to bring a solution to the problem <a href="https://developers.google.com/community/dsc-solution-challenge/UN-goals#goal-1br-no-poverty">No Poverty</a> and <a href="https://developers.google.com/community/dsc-solution-challenge/UN-goals#goal-2br-zero-hunger">Zero Hunger</a> from the problems determined by the united nations, with this app. While designing the market part of our app, we wanted to reduce poverty by giving various grocery products to people in need. In the other part of our app, we provide fresh-cooked but not served food from restaurant and catering companies to poor people. In this way, we find a solution to both of the hunger problem and the food waste problem.**
 
 
 We also thought of people who did not have a phone and would not be aware of our app. Municipalities and charity foundations can show places where people can go and buy free food or grocery products on large screens in squares and city centers. At the same time, some helpful people can inform these people after downloading and examining our app. 
