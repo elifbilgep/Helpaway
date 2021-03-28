@@ -64,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "Food & Market",
+              "Helpaway",
               style: Theme.of(context).textTheme.headline3,
             ),
           ],

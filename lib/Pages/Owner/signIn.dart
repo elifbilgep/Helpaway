@@ -108,7 +108,7 @@ class _SignInState extends State<SignIn> {
                           });
                         },
                         child: Icon(Icons.remove_red_eye)),
-                    hintText: "Sifre",
+                    hintText: "Password",
                     hintStyle: Theme.of(context).textTheme.bodyText1),
               ),
               TextButton(

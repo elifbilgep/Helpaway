@@ -245,7 +245,10 @@ class _OwnerPageState extends State<OwnerPage> {
                     ),
                     Text(
                       owner.restaurantName,
-                      style: Theme.of(context).textTheme.headline4,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline4
+                          .copyWith(fontSize: 15),
                     ),
                     Text(
                       owner.city,
@@ -263,7 +266,7 @@ class _OwnerPageState extends State<OwnerPage> {
                           width: 80,
                         ),
                         Text(
-                          "Avaiable until " + foods[index].time,
+                          "Available until " + foods[index].time,
                           style: Theme.of(context).textTheme.bodyText2.copyWith(
                               fontSize: 16, color: Colors.grey.shade500),
                           textAlign: TextAlign.end,

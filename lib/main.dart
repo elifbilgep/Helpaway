@@ -18,6 +18,7 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Authorization().signOut();
     return Provider<Authorization>(
       create: (_) => Authorization(),
       child: MaterialApp(

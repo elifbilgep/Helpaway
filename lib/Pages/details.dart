@@ -231,7 +231,7 @@ class _HomeState extends State<Home> {
                                 width: 80,
                               ),
                               Text(
-                                "Avaiable until " + foods[index].time,
+                                "Available until " + foods[index].time,
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyText2
