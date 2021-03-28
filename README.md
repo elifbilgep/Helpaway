@@ -15,7 +15,7 @@ We also thought of people who did not have a phone and would not be aware of our
  
  
 <p align="center">
-        <img src="https://github.com/elifbilgep/market_food/blob/master/assets/git%20images/Marketing.png" alt="">
+        <img height="1127" width="793" src="https://github.com/elifbilgep/market_food/blob/master/assets/git%20images/Marketing.png" alt="">
 </p>
 
 ## Description
