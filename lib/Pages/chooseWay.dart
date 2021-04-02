@@ -8,7 +8,7 @@ class Choose extends StatelessWidget {
   final givenCity;
   String foodText = "Shows restaurants that give away food nearby.";
   String market =
-      "Shows supermarkets that are eager to prevent waste of products nearby.";
+      "Shows supermarkets nearby that are eager to prevent waste of products.";
 
   Choose({Key key, this.givenCountry, this.givenCity}) : super(key: key);
 
@@ -95,7 +95,7 @@ class Choose extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 55,
+                    height: 65,
                   ),
                   ButtonTheme(
                     height: 40,
@@ -106,8 +106,12 @@ class Choose extends StatelessWidget {
                           style: Theme.of(context).textTheme.headline2,
                         ),
                         onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => Home(givenCity:givenCity,givenCountry:givenCountry)));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Home(
+                                      givenCity: givenCity,
+                                      givenCountry: givenCountry)));
                         },
                         color: prettyPurple,
                         shape: RoundedRectangleBorder(
@@ -142,8 +146,11 @@ class Choose extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(10.0),
                     child: Text(
-                      foodText,
-                      style: Theme.of(context).textTheme.bodyText1,
+                      market,
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyText1
+                          .copyWith(fontSize: 14),
                     ),
                   ),
                   SizedBox(

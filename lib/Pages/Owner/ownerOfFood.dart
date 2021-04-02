@@ -225,7 +225,7 @@ class _OwnerPageState extends State<OwnerPage> {
                         child: Image.asset(
                           "assets/images/${foods[index].categories}.png",
                           fit: BoxFit.contain,
-                        ),
+                        ),  
                       ),
                     ),
                   ],
